@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>My Aplicación con Sockets</title>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="main.js"></script>
+</head>
+
+<style>
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    img {
+        max-height: 75%;
+
+    }
+    .botones{
+        margin-top: 34em;
+    }
+    .text {
+        font-size: 8vw;
+        margin-left: 1em;
+    }
+
+    #carouselExampleControls {
+        margin: 1em;
+        max-height: 75%;
+        max-width: 85%;
+    }
+
+    .logo {
+        text-align: right;
+    }
+
+    .btn {
+        width: 28vw;
+        height: 15vw;
+        margin: 1em;
+        font-size: 4vw;
+    }
+
+    @media screen and (min-device-width: 800px) {
+        .botones {
+            display: none;
+        }
+
+    }
+
+    .tiempo {
+        margin-top: 15em;
+        margin-left: 1em;
+    }
+
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        #carouselExampleControls {
+            display: none;
+        }
+
+        .tiempo {
+            display: none;
+        }
+
+    }
+</style>
+
+<body>
+    <div class="row " style="height: 25vw;">
+        <div id="carouselExampleControls" class="carousel slide col-10" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img alt="asd" class="d-block w-100 img-fluid" src="1.jpg">
+                </div>
+                <!-- <div class="carousel-item">
+                    <img alt="..." class="d-block w-100 img-fluid" src="2.jpg">
+                </div> -->
+                <div class="carousel-item">
+                    <img src="4.jpg" class="d-block w-100 img-fluid" alt="...">
+                </div>
+            </div>
+        </div>
+
+        <div class=" col-2counters">
+            <div class="col">
+                <h1 class="text">Carniceria</h1>
+                <h1 class="text" id="carniceria"></h1>
+            </div>
+            <div class="col">
+                <h1 class="text">Fruteria</h1>
+                <h1 class="text" id="fruteria"></h1>
+            </div>
+            <div class="w-100"></div>
+            <div class="col">
+                <h1 class="text">Pescaderia</h1>
+                <h1 class="text" id="pescaderia"></h1>
+            </div>
+            <div class="col">
+                <h1 class="text">Panaderia</h1>
+                <h1 class="text" id="panaderia"></h1>
+            </div>
+        </div>
+
+        <!-- <div class="col-2 contadores-tele">
+            <h1>Carniceria</h1>
+            <h1 id="carniceria"></h1>
+
+            <h1>Fruteria</h1>
+            <h1 id="fruteria"></h1>
+
+            <h1>Pescaderia</h1>
+            <h1 id="pescaderia"></h1>
+
+            <h1>Panaderia</h1>
+            <h1 id="panaderia"></h1>
+        </div> -->
+    </div>
+
+    <br />
+    <div class="row botones">
+        <div class="col">
+            <form onclick="return addCarniceria(this)">
+                <input class="btn btn-danger" type="button" value="Carniceria!">
+            </form>
+        </div>
+        <div class="col">
+            <form onclick="return addFruteria(this)">
+                <input class="btn btn-success" type="button" value="Fruteria!">
+            </form>
+        </div>
+        <div class="w-100"></div>
+        <div class="col">
+            <form onclick="return addPescaderia(this)">
+                <input class="btn btn-primary" type="button" value="Pescaderia!">
+            </form>
+        </div>
+        <div class="col">
+            <form onclick="return addPanaderia(this)">
+                <input class="btn btn-light" type="button" value="Panaderia!">
+            </form>
+        </div>
+    </div>
+    <footer>
+    <div class="row tiempo">
+        <div class="col">
+            <div id="c_09bc74099bb6390983c39d3a727c1ee2" class="mini"></div>
+            <script type="text/javascript"
+                src="https://www.eltiempo.es/widget/widget_loader/09bc74099bb6390983c39d3a727c1ee2"></script>
+        </div>
+        <div class="col" style="text-align:center;padding:1em 0;">
+            <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/es/city/2511247"><span
+                        style="color:gray;">Hora actual en</span><br />San Pedro del Pinatar, España</a></h2> <iframe
+                src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=large&timezone=Europe%2FMadrid"
+                width="100%" height="140" frameborder="0" seamless></iframe>
+        </div>
+        <div class="col logo">
+            <img src="3.png" style="margin-top: 3em; width: 10vw; height: 10vw;" alt="sdf">
+        </div>
+    </div>
+</footer>
+</body>
+
+
+</html>
