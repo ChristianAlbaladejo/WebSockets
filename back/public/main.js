@@ -38,6 +38,9 @@ function render(data) {
           </div>`);
       }).join(" ");
       document.getElementById('panaderia').innerHTML = html;
+      var audio = document.getElementById("audio");
+
+      audio.play(); 
 }
 
 function addCarniceria(e){

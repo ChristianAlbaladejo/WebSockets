@@ -22,7 +22,6 @@ io.on('connection', function (socket) {
       socket.emit('messages', messages);
     
       socket.on('new-message', function (data) {
-            console.log(data)
             messages[0].carniceria = data.carniceria;
             messages[0].fruteria = data.fruteria;
             messages[0].pescaderia = data.pescaderia;

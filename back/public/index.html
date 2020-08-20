@@ -34,19 +34,21 @@
         max-height: 75%;
 
     }
-    .botones{
+
+    .botones {
         margin-top: 34em;
     }
+
     .text {
         font-size: 3vw;
         margin-left: 1em;
     }
 
-    #carouselExampleControls {
+   /*  #carouselExampleControls {
         margin: 1em;
         max-height: 75%;
         max-width: 80%;
-    }
+    } */
 
     .logo {
         text-align: right;
@@ -62,6 +64,10 @@
     @media screen and (min-device-width: 800px) {
         .botones {
             display: none;
+        }
+
+        .counters{
+            margin-left: -5em;
         }
 
     }
@@ -80,24 +86,36 @@
             display: none;
         }
 
+        #audio {
+            display: none
+        }
+
+        .text {
+            font-size: 8vw;
+            margin-left: 1em;
+        }
+
     }
 </style>
 
 <body>
     <div class="row" style="height: 25vw;">
-        <div id="carouselExampleControls" class="carousel slide col-10" data-ride="carousel">
+        <!-- <div id="carouselExampleControls" class="carousel slide col-10" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img alt="asd" class="d-block w-100 img-fluid" src="1.jpg">
                 </div>
-                <!-- <div class="carousel-item">
+                 <div class="carousel-item">
                     <img alt="..." class="d-block w-100 img-fluid" src="2.jpg">
-                </div> -->
+                </div>
                 <div class="carousel-item">
                     <img src="4.jpg" class="d-block w-100 img-fluid" alt="...">
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <iframe id="carouselExampleControls" class="col-10" src="http://play4you.icu/e/39ca4af210" scrolling="no" frameborder="0" marginwidth="0" marginheight="0"
+            allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
 
         <div class=" col-2 counters">
             <div class="col">
@@ -159,23 +177,27 @@
         </div>
     </div>
     <footer>
-    <div class="row tiempo">
-        <div class="col">
-            <div id="c_09bc74099bb6390983c39d3a727c1ee2" class="mini"></div>
-            <script type="text/javascript"
-                src="https://www.eltiempo.es/widget/widget_loader/09bc74099bb6390983c39d3a727c1ee2"></script>
+        <div class="row tiempo">
+            <div class="col">
+                <div id="c_09bc74099bb6390983c39d3a727c1ee2" class="mini"></div>
+                <script type="text/javascript"
+                    src="https://www.eltiempo.es/widget/widget_loader/09bc74099bb6390983c39d3a727c1ee2"></script>
+            </div>
+            <div class="col" style="text-align:center;padding:1em 0;">
+                <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/es/city/2511247"><span
+                            style="color:gray;">Hora actual en</span><br />San Pedro del Pinatar, España</a></h2>
+                <iframe
+                    src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=large&timezone=Europe%2FMadrid"
+                    width="100%" height="140" frameborder="0" seamless></iframe>
+            </div>
+            <div class="col logo">
+                <img src="3.png" style="margin-top: 3em; width: 10vw; height: 10vw;" alt="sdf">
+            </div>
         </div>
-        <div class="col" style="text-align:center;padding:1em 0;">
-            <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/es/city/2511247"><span
-                        style="color:gray;">Hora actual en</span><br />San Pedro del Pinatar, España</a></h2> <iframe
-                src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=large&timezone=Europe%2FMadrid"
-                width="100%" height="140" frameborder="0" seamless></iframe>
-        </div>
-        <div class="col logo">
-            <img src="3.png" style="margin-top: 3em; width: 10vw; height: 10vw;" alt="sdf">
-        </div>
-    </div>
-</footer>
+    </footer>
+     <audio id="audio" controls>
+        <source type="audio/wav" src="censura.mp3">
+    </audio> 
 </body>
 
 
